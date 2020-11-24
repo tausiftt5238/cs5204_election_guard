@@ -283,11 +283,12 @@ class TestEndToEndElection(TestCase):
 
         # Randomly cast or spoil the ballots
         for ballot in self.ciphertext_ballots:
-            if randint(0, 1):
-                accepted_ballot = self.ballot_box.cast(ballot)
-            else:
-                accepted_ballot = self.ballot_box.spoil(ballot)
-
+            # if randint(0, 1):
+            #     accepted_ballot = self.ballot_box.cast(ballot)
+            # else:
+            #     accepted_ballot = self.ballot_box.spoil(ballot)
+            accepted_ballot = self.ballot_box.cast(ballot)
+            
             self._assert_message(
                 BallotBox.__qualname__,
                 f"Accepted Ballot Id: {ballot.object_id} state: {get_optional(accepted_ballot).state}",

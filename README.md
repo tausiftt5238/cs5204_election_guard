@@ -153,3 +153,7 @@ A huge thank you to those who helped to contribute to this project so far, inclu
 
 [MIT License]: https://github.com/microsoft/electionguard-python/blob/main/LICENSE
 # cs5204_election_guard
+
+
+juuuuuuuuuuuuuuuust run
+"./run.sh"
