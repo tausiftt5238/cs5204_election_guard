@@ -1,0 +1,175 @@
+{
+    "geopolitical_units": [
+        {
+            "object_id": "united-states",
+            "name": "United States",
+            "type": "country",
+            "contact_information": {
+                "address_line": [
+                    "idk",
+                    "idk"
+                ],
+                "name": "idk",
+                "email": [
+                    {
+                        "annotation": "idk",
+                        "value": "idk@state.gov"
+                    }
+                ],
+                "phone": [
+                    {
+                        "annotation": "domestic",
+                        "value": "123-456-7890"
+                    }
+                ]
+            }
+        }
+    ],
+    "parties": [
+        {
+            "object_id": "jojo",
+            "abbreviation": "JOJO",
+            "color": "0000FF",
+            "logo_uri": "http://some/path/to/whig.svg",
+            "name": {
+                "text": [
+                    {
+                        "value": "SPEED BALL RUN",
+                        "language": "en"
+                    }
+                ]
+            }
+        },
+        {
+            "object_id": "mgr",
+            "abbreviation": "MGRR",
+            "color": "FF0000",
+            "logo_uri": "http://some/path/to/whig.svg",
+            "name": {
+                "text": [
+                    {
+                        "value": "METAL GEAR RISING",
+                        "language": "en"
+                    }
+                ]
+            }
+        }
+    ],
+    "candidates": [
+        {
+            "object_id": "funny-valentine",
+            "ballot_name": {
+                "text": [
+                    {
+                        "value": "Funny Valentine",
+                        "language": "en"
+                    }
+                ]
+            },
+            "party_id": "jojo"
+        },
+        {
+            "object_id": "senator-armstrong",
+            "ballot_name": {
+                "text": [
+                    {
+                        "value": "Senator Armstrong",
+                        "language": "en"
+                    }
+                ]
+            },
+            "party_id": "mgr"
+        }
+    ],
+    "contests": [
+        {
+            "@type": "CandidateContest",
+            "object_id": "presidency",
+            "sequence_order": 0,
+            "ballot_selections": [
+                {
+                    "object_id": "funny-valentine-selection",
+                    "sequence_order": 0,
+                    "candidate_id": "funny-valentine"
+                },
+                {
+                    "object_id": "senator-armstrong-selection",
+                    "sequence_order": 1,
+                    "candidate_id": "senator-armstrong"
+                }
+            ],
+            "ballot_title": {
+                "text": [
+                    {
+                        "value": "President of United States",
+                        "language": "en"
+                    }
+                ]
+            },
+            "ballot_subtitle": {
+                "text": [
+                    {
+                        "value": "Please choose one candidate",
+                        "language": "en"
+                    }
+                ]
+            },
+            "vote_variation": "n_of_m",
+            "electoral_district_id": "united-states",
+            "name": "President of United States",
+            "primary_party_ids": [
+                "jojo",
+                "mgr"
+            ],
+            "number_elected": 1,
+            "votes_allowed": 1
+        }
+    ],
+    "ballot_styles": [
+        {
+            "object_id": "united-states-ballot-style",
+            "geopolitical_unit_ids": [
+                "united-states"
+            ]
+        }
+    ],
+    "name": {
+        "text": [
+            {
+                "value": "President of United States",
+                "language": "en"
+            }
+        ]
+    },
+    "contact_information": {
+        "address_line": [
+            "idk",
+            "idk"
+        ],
+        "name": "idk",
+        "email": [
+            {
+                "annotation": "idk",
+                "value": "idk@state.gov"
+            },
+            {
+                "annotation": "federal",
+                "value": "idk@state.gov"
+            }
+        ],
+        "phone": [
+            {
+                "annotation": "domestic",
+                "value": "123-456-7890"
+            },
+            {
+                "annotation": "international",
+                "value": "+1-123-456-7890"
+            }
+        ]
+    },
+    "start_date": "2020-03-01T08:00:00-05:00",
+    "end_date": "2020-03-01T20:00:00-05:00",
+    "election_scope_id": "united-states",
+    "type": "primary"
+}
