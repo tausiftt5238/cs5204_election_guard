@@ -13,20 +13,20 @@ def get_random_string(length):
 '''SETTING UP WINDOW AND EVERYTHING ELSE'''
 window = tk.Tk()
 window.wm_title("Election")
-window.geometry("600x400")
+window.geometry("600x1000")
 window.resizable(False, False)
 
 message = tk.Label(text="Choose your president:")
 message.pack()
 
-frame1 = tk.Frame()
-frame1.pack(fill='both', side='left', expand='True')
+# frame1 = tk.Frame()
+# frame1.pack(fill='both', side='left', expand=True)
 
-frame2 = tk.Frame()
-frame2.pack(fill='both', side='right', expand='True')
+# frame2 = tk.Frame()
+# frame2.pack(fill='both', side='right', expand=True)
 
-frame3 = tk.Frame()
-frame3.pack(side='bottom')
+# frame3 = tk.Frame()
+# frame3.pack(side='bottom')
 '''DONE SETTING UP'''
 
 '''STARTING SETTING UP JSON'''
@@ -105,7 +105,7 @@ def red_pressed():
 def close_window():
     popUpWindow = tk.Toplevel()
     popUpWindow.grab_set()
-    popUpWindow.geometry("300x200")
+    
     popUpWindow.resizable(False, False)
     greeting = tk.Label(popUpWindow, text="Please enter password to make sure you are authorized to end it.")
     greeting.pack()
@@ -130,10 +130,10 @@ def close_window():
 load1 = Image.open("valentine.png")
 load1 = load1.resize((100,100), Image.ANTIALIAS)
 render1 = ImageTk.PhotoImage(load1)
-img1 = tk.Label(image=render1,master=frame1)
+img1 = tk.Label(image=render1)
 img1.pack()
 
-pres1 = tk.Label(text="Funny Valentine", master=frame1)
+pres1 = tk.Label(text="Funny Valentine")
 pres1.pack()
 
 # Button for Funny Valentine
@@ -144,7 +144,7 @@ button1 = tk.Button(
     bg="blue",
     fg="white",
     command=blue_pressed,
-    master=frame1,
+    
 )
 button1.pack()
 
@@ -152,10 +152,10 @@ button1.pack()
 load2 = Image.open("armstrong.png")
 load2 = load2.resize((100,100), Image.ANTIALIAS)
 render2 = ImageTk.PhotoImage(load2)
-img2 = tk.Label(image=render2,master=frame2)
+img2 = tk.Label(image=render2,)
 img2.pack()
 
-pres2 = tk.Label(text="Senator Armstrong", master=frame2)
+pres2 = tk.Label(text="Senator Armstrong", )
 pres2.pack()
 
 # Adding button for Armstrong
@@ -166,7 +166,7 @@ button2 = tk.Button(
     bg="red",
     fg="white",
     command=red_pressed,
-    master=frame2,
+    
 )
 button2.pack()
 
@@ -175,7 +175,7 @@ button3 = tk.Button(
     width=5,
     height=5,
     command=close_window,
-    master=frame3
+    
 )
 
 button3.pack()
