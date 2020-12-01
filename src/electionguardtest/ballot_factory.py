@@ -3,6 +3,7 @@ from jsons import KEY_TRANSFORMER_SNAKECASE, loads
 from random import Random, randint
 from typing import cast, TypeVar, Callable, List, Tuple
 import uuid
+import io
 
 from hypothesis.strategies import (
     composite,
@@ -143,6 +144,18 @@ class BallotFactory(object):
 
     def _get_ballots_from_file(self, filename: str) -> List[PlaintextBallot]:
         with open(os.path.join(data, filename), "r") as subject:
+            result = subject.read()
+            target = cast(
+                List[PlaintextBallot],
+                loads(
+                    result,
+                    List[PlaintextBallot],
+                    key_transformer=KEY_TRANSFORMER_SNAKECASE,
+                ),
+            )
+        return target
+    def get_ballots_from_string(self, data: str) -> List[PlaintextBallot]:
+        with io.StringIO(data) as subject:
             result = subject.read()
             target = cast(
                 List[PlaintextBallot],
