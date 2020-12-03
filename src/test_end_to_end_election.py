@@ -520,11 +520,10 @@ def get_random_string(length):
     return result_str
 
 def selected(color):
-    color = color.lower()
     data = {}
     data["object_id"] = get_random_string(16)
     data["ballot_style"] = "united-states-ballot-style"
-    if color == "blue":
+    if color == "blue" or color == "b":
         data["contests"] = [
             {
                 "object_id": "presidency",
@@ -536,7 +535,7 @@ def selected(color):
                 ]
             }
         ]
-    elif color == "red":
+    elif color == "red" or color == "r":
         data["contests"] = [
             {
                 "object_id": "presidency",
@@ -548,7 +547,8 @@ def selected(color):
                 ]
             }
         ]
-
+    else:
+        print("Input not recognized! Please try again!")
     end_data.append(data)
 
 def interface():
@@ -558,14 +558,21 @@ def interface():
     # Write "next 12345" for next prompt
     # Write "quit 12345" to  quit
     while(True):
-        choice = input("Select your president: ")
-        if choice == "q":
+        print("To vote for Funny Valentine please write Blue or B. <Case doesn't matter>")
+        print("To vote for Senator Armstrong please write Red or R. <Case doesn't matter>")
+        print("To end the voting process, enter q/quit.")
+        choice = input("Vote your president: ")
+        choice = choice.lower()
+        if choice == "q" or choice == "quit":
             break
-        selected(choice)
-        while(True):
-            _is_next = input("Next participant?")
-            if _is_next == "n":
-                break
+        confirm = input("Confirm your vote? [Y/N]: ")
+        confirm = confirm.lower() 
+        if confirm == "y":
+            selected(choice)
+        # while(True):
+        #     _is_next = input("Next participant?")
+        #     if _is_next == "n":
+        #         break
     
     return json.dumps(end_data)
 

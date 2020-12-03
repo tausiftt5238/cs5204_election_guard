@@ -1,0 +1,6 @@
+{
+  "src/test_end_to_end_election.py::TestEndToEndElection::test_end_to_end_election": true,
+  "tests/integration/test_end_to_end_election.py": true,
+  "tests/integration/test_end_to_end_election.py::TestCase": true,
+  "tests/integration/test_end_to_end_election.py::TestEndToEndElection": true
+}
