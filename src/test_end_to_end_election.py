@@ -68,6 +68,16 @@ from electionguard.publish import (
     BALLOT_PREFIX,
 )
 
+import socket
+
+def send_over_network(msg):
+    port = 4444
+    hostname = '10.0.2.2' #'localhost' # Assume Gateway on Nathaniel's WSL
+    
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.connect((hostname, port))
+        s.sendall(str.encode(str(msg) + "\n")) 
+
 class TestEndToEndElection(TestCase):
     """
     Test a complete simple example of executing an End-to-End encrypted election.
@@ -114,7 +124,9 @@ class TestEndToEndElection(TestCase):
         self.step_1_key_ceremony()  # safe surprisingly 
         self.step_2_encrypt_votes(data)
         self.step_3_cast_and_spoil()
-        self.step_4_decrypt_tally()
+        
+        # Comment out Step 4 because I don't want to show user
+        # self.step_4_decrypt_tally()
         # None of these do any sort of writing
         # self.step_5_publish_and_verify()
 
@@ -294,6 +306,9 @@ class TestEndToEndElection(TestCase):
                 f"Accepted Ballot Id: {ballot.object_id} state: {get_optional(accepted_ballot).state}",
                 accepted_ballot is not None,
             )
+
+            # Send Over Network
+        send_over_network(self.ciphertext_ballots)
 
     def step_4_decrypt_tally(self) -> None:
         """
