@@ -565,7 +565,7 @@ def interface():
         choice = choice.lower()
         if choice == "q" or choice == "quit":
             break
-        confirm = input("Confirm your vote? [Y/N]: ")
+        confirm = input("Confirm your vote? [y/N]: ")
         confirm = confirm.lower() 
         if confirm == "y":
             selected(choice)
